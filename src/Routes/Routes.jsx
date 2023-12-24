@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
   
             path: '/dashboard/updateItem/:id',
             element: <UpdateItem></UpdateItem>,
-            loader: () => fetch("http://localhost:5000/alltask")
+            loader: () => fetch("https://task-pro-server-dun.vercel.app/alltask")
         
         }
       ]
