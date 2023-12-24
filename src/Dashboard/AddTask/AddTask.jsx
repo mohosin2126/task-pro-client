@@ -1,10 +1,23 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 
 const AddTask = () => {
+    const { user} = useContext(AuthContext);
     const { register, handleSubmit } = useForm();
 const onSubmit=async(data)=>{
-    console.log(data)
+    const taskInfo = {
+        title: data.title,
+        priority: data.priority,
+        date: data.date,
+        email :data.email,
+        description: data.description
+
+        
+    }
+    console.log(taskInfo)
+
 }
 
 
@@ -54,7 +67,13 @@ const onSubmit=async(data)=>{
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <textarea {...register('email')} className="input input-bordered w-full" placeholder="Email"></textarea>
+                    <input
+                            type="email"
+                            placeholder={user?.email}
+                            defaultValue={user?.email}
+                            readOnly
+                            {...register("email", { required: true })}
+                            className="input input-bordered w-full" />
                 </div>
 
                 <div className="form-control">
