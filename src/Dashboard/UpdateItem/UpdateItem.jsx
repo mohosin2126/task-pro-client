@@ -1,12 +1,14 @@
 import { useForm } from "react-hook-form";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const UpdateItem = () => {
-    const {_id,title,description} = useLoaderData();
-  console.log(_id)
+    const TaskCard= useLoaderData();
+const { id } = useParams();
+    const InfoCard = TaskCard.find(task =>task._id === id);
+   console.log(InfoCard)
     const { register, handleSubmit,reset } = useForm();
     const axiosPublic = useAxiosPublic();
 
@@ -19,10 +21,9 @@ const UpdateItem = () => {
         }
         console.log(taskInfo)
         
-        const taskRes = await axiosPublic.patch(`/alltask/${_id}`, taskInfo);
-        if(taskRes.data.insertedId){
-            // show success popup
-            reset();
+        const taskRes = await axiosPublic.patch(`/alltask/${InfoCard._id}`, taskInfo);
+        if(taskRes.data.modifiedCount>0){
+           
             Swal.fire({
                 position: "top",
                 icon: "success",
@@ -30,6 +31,7 @@ const UpdateItem = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+              reset()
         }
     
     

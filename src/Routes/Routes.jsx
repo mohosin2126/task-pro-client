@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
   
             path: '/dashboard/updateItem/:id',
             element: <UpdateItem></UpdateItem>,
-            loader: ({params}) => fetch(`http://localhost:5000/${params.id}`)
+            loader: () => fetch("http://localhost:5000/alltask")
         
         }
       ]
