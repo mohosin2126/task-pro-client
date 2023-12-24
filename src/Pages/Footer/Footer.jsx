@@ -3,7 +3,7 @@
 const Footer = () => {
     return (
         <div>
-           <footer className="footer footer-center p-10 bg-emerald-800 text-primary-content">
+           <footer className="footer footer-center p-10 bg-slate-800 text-primary-content">
   <aside>
     <img src="https://i.ibb.co/9tCKZbS/icons8-checklist-96.png" alt="" />
     <p className="font-bold">

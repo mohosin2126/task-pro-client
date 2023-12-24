@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Benificial from "../Benificial/Benificial";
 
 
 const Home = () => {
@@ -19,6 +20,7 @@ Let's Explore
     </div>
   </div>
 </div>
+<Benificial></Benificial>
         </div>
     );
 };
