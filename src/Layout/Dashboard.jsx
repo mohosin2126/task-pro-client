@@ -29,7 +29,7 @@ const Dashboard = () => {
           </li>
           <li>
             <NavLink to="/dashboard/previoustask">
-              <FcPrevious/> Previous Task
+              <FcPrevious/> My Task
             </NavLink>
           </li>
           {/* shared nav links */}
