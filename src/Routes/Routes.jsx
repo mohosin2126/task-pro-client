@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Dashboard from "../Layout/Dashboard";
 import AddTask from "../Dashboard/AddTask/AddTask";
+import MyTask from "../Dashboard/MyTask/MyTask";
 
 export const router = createBrowserRouter([
     {
@@ -31,7 +32,11 @@ export const router = createBrowserRouter([
       children:[
         {
           path:"/dashboard/createnewtask",
-          element:<AddTask></AddTask>
+          element:<AddTask></AddTask>,
+        },
+        {
+          path:"/dashboard/mytask",
+          element:<MyTask></MyTask>
         }
       ]
     }

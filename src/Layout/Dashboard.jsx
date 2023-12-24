@@ -28,7 +28,7 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/previoustask">
+            <NavLink to="/dashboard/mytask">
               <FcPrevious/> My Task
             </NavLink>
           </li>
