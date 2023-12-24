@@ -8,7 +8,7 @@ const Navbar = () => {
         </>
       );
     return (
-        <div  className="navbar justify-between  h-28 mb-4">
+        <div  className="navbar justify-between  h-10 mb-4">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -53,7 +53,7 @@ const Navbar = () => {
       </li>
     
         <li  className="font-base text-base">
-          <Link >Login</Link>
+          <Link to="/login" >Login</Link>
         </li>
     </ul>
   </div>
