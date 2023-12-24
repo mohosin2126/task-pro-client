@@ -6,6 +6,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Dashboard from "../Layout/Dashboard";
 import AddTask from "../Dashboard/AddTask/AddTask";
 import MyTask from "../Dashboard/MyTask/MyTask";
+import UpdateItem from "../Dashboard/UpdateItem/UpdateItem";
 
 export const router = createBrowserRouter([
     {
@@ -36,7 +37,14 @@ export const router = createBrowserRouter([
         },
         {
           path:"/dashboard/mytask",
-          element:<MyTask></MyTask>
+          element:<MyTask></MyTask>,
+        },
+          {
+  
+            path: '/dashboard/updateItem/:id',
+            element: <UpdateItem></UpdateItem>,
+            loader: ({params}) => fetch(`http://localhost:5000/${params.id}`)
+        
         }
       ]
     }
