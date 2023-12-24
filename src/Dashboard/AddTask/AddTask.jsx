@@ -1,22 +1,40 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const AddTask = () => {
     const { user} = useContext(AuthContext);
-    const { register, handleSubmit } = useForm();
+    const axiosPublic=useAxiosPublic()
+    const { register, handleSubmit ,reset} = useForm();
 const onSubmit=async(data)=>{
     const taskInfo = {
         title: data.title,
         priority: data.priority,
         date: data.date,
         email :data.email,
-        description: data.description
+        description: data.description,
+        status:"Todo"
 
         
     }
     console.log(taskInfo)
+    
+    const taskRes = await axiosPublic.post('/alltask', taskInfo);
+    if(taskRes.data.insertedId){
+        // show success popup
+        reset();
+        Swal.fire({
+            position: "top",
+            icon: "success",
+            title: `${data.title} is added to the menu.`,
+            showConfirmButton: false,
+            timer: 1500
+          });
+    }
+
 
 }
 
