@@ -4,7 +4,7 @@ const Navbar = () => {
     const navOptions = (
         <>
           <li className="font-bold font-serif text-lg text-rose-600"><Link to="/">Home</Link></li>
-          <li className="font-bold font-serif text-lg text-rose-600"><Link>Register</Link></li>   
+          <li className="font-bold font-serif text-lg text-rose-600"><Link to="/signup">Register</Link></li>   
         </>
       );
     return (
