@@ -41,6 +41,9 @@ const onSubmit=async(data)=>{
 
     return (
         <div>
+            <div>
+            <h1 className="text-center font-extrabold text-3xl mt-16">Add Task</h1>
+            </div>
         <div>
             <form onSubmit={handleSubmit(onSubmit)} >
                 <div className="form-control w-full my-6">
