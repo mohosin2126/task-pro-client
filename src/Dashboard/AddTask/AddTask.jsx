@@ -29,7 +29,7 @@ const onSubmit=async(data)=>{
         Swal.fire({
             position: "top",
             icon: "success",
-            title: `${data.title} is added to the menu.`,
+            title: `${data.title} is added to the my task.`,
             showConfirmButton: false,
             timer: 1500
           });

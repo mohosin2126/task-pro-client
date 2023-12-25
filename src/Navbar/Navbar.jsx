@@ -56,7 +56,14 @@ const Navbar = () => {
     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
       <div className="w-10 rounded-full">
      
+      {user ? (
+          
+          
+            <img src={user?.photoURL}/>
+         
+        ) : (
           <img src="https://i.ibb.co/Xb7MwCk/placeholder.jpg" />
+        )}
        
       </div>
     </label>
@@ -64,18 +71,25 @@ const Navbar = () => {
       tabIndex={0}
       className="mt-3 z-[1] text-start shadow  dropdown-content space-y-1 bg-base-100 rounded-box w-48"
     >
-      <Link>
-        <li ><button  className=" mt-5 flex mx-auto bg-transparent hover:bg-red-600 text-red-600 font-serif font-semibold hover:text-white py-1 md:py-2 px-2 md:px-4 border  hover:border-transparent rounded"> Dashboard</button></li>
-      </Link>
+      
+      
       <li>
-        <h1  className="font-base text-base">
-            user name 
+      <h1 className="font-base text-xl text-center">
+          {user ? user?.displayName : "Your Name"}
         </h1>
       </li>
-    
-        <li  className="font-base text-base">
-          <Link to="/login" >Login</Link>
-        </li>
+      {
+        user ? (
+          <>
+           <li className="font-bold font-serif text-center text-lg text-rose-600"><Link to="/dashboard">Dashboard</Link></li>
+           <button onClick={handleLogOut} className="font-bold text-center font-serif text-lg text-rose-600">LogOut</button>
+           </>
+         
+        ) : (
+          <li className="font-bold font-serif text-center text-lg text-rose-600"><Link to="/login">Login</Link></li>
+        )
+      }
+        
     </ul>
   </div>
 </div>
