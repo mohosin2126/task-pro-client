@@ -20,8 +20,24 @@ const Dashboard = () => {
   return (
     <div className="flex">
       {/* dashboard side bar */}
-      <div className="w-64 mt-20 min-h-screen fixed ">
-        <ul className="menu p-4">
+      <div className="w-64 min-h-screen fixed bg-cyan-900">
+        <div >
+        <div className="p-4 mt-10 text-center">
+        {user ? (
+          <div className="avatar">
+          <div className="w-24  rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <img src={user?.photoURL}/>
+          </div>
+        </div>
+         
+        ) : (
+          <img src="https://i.ibb.co/Xb7MwCk/placeholder.jpg" />
+        )}
+         <h1 className="font-base text-xl text-center">
+          {user ? user?.displayName : "Your Name"}
+        </h1>
+        </div>
+        <ul className="menu p-4 ">
           <li className="text-lg">
             <NavLink to="/dashboard/createnewtask">
              < MdCreateNewFolder/> Create New Task
@@ -48,6 +64,7 @@ const Dashboard = () => {
             ) : null}
           </li>
         </ul>
+        </div>
       </div>
       {/* dashboard content */}
       <div className="flex-1 p-8 ml-64 ">
