@@ -40,6 +40,7 @@ const { id } = useParams();
     
     return (
         <div>
+            <h1 className="text-center font-extrabold text-3xl mt-16">Update</h1>
             <div>
             <form onSubmit={handleSubmit(onSubmit)} >
                 <div className="form-control w-full my-6">

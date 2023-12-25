@@ -36,16 +36,20 @@ const TaskCard = ({data ,refetch}) => {
     return (
         <div>
             <div>
-            <div className="card w-96 bg-neutral text-neutral-content">
-  <div className="card-body items-center text-center">
-    <h2 className="card-title text-center font-serif text-lg font-bold text-red-600">{title}</h2>
-    <p>{description}</p>
-    <p>{date}</p>
-    <p>{priority}</p>
-    <p>{status}</p>
-    <div className="flex gap-10">
-       <Link to={`/dashboard/updateItem/${_id}`}> <button> Update</button></Link>
-        <button  onClick={() => handleDelete(_id)}>Delete</button>
+            <div className="card w-96 h-96 bg-neutral text-neutral-content">
+  <div className="card-body  ">
+    <h2 className="text-center text-2xl font-serif text-rose-600">{title}</h2>
+    <p className="text-start text-lg mt-5">Description: {description}</p>
+    <div className="flex  justify-between">
+    <p className="text-lg">Date: {date}</p>
+    <p className="text-lg">Priority: <span className="text-emerald-500 font-bold text-lg">{priority}</span></p>
+    </div>
+    <p className="text-lg">Status: <span className="text-green-600 text-lg">{status}</span></p>
+    <div className="flex justify-between">
+       <Link to={`/dashboard/updateItem/${_id}`}> <button type="button" className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Update</button></Link>
+       
+       <button onClick={() => handleDelete(_id)} type="button" className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Delete</button>
+     
     </div>
   </div>
 </div>
