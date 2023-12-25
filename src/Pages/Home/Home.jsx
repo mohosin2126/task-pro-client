@@ -1,11 +1,21 @@
 import { Link } from "react-router-dom";
 import Benificial from "../Benificial/Benificial";
-
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Home = () => {
+  useEffect(() => {
+    AOS.init({
+        duration: 1000,
+        delay: 100,
+        easing: 'ease-in-out',
+    });
+}, []);
+
     return (
         <div>
-            <div className="hero min-h-screen" style={{backgroundImage: 'url(https://i.ibb.co/XW7YvJg/pngtree-simple-e-commerce-career-character-image-21505.jpg)'}}>
+            <div data-aos="fade-up-left" className="hero min-h-screen" style={{backgroundImage: 'url(https://i.ibb.co/XW7YvJg/pngtree-simple-e-commerce-career-character-image-21505.jpg)'}}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-center text-neutral-content">
     <div >
@@ -20,7 +30,8 @@ Let's Explore
     </div>
   </div>
 </div>
-<Benificial></Benificial>
+<div data-aos="fade-up-right"><Benificial ></Benificial></div>
+
         </div>
     );
 };
