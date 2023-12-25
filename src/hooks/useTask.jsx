@@ -10,7 +10,7 @@ const useTask = () => {
   const { data: allData = [], refetch } = useQuery({
     queryKey: ['data'],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/alltask?email=${user?.email}`);
+      const res = await axiosPublic.get(`/alltask/email?email=${user?.email}`);
       return res.data;
     },
   });
