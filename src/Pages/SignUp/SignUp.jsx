@@ -8,10 +8,11 @@ const SignUp = () => {
     const { createUser , googleSignIn}=useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
     const handleGoogleSignIn = () =>{
         googleSignIn()
         .then(result =>{
-         console.log(result)
+          navigate(from, { replace: true });
            
         })
     }
